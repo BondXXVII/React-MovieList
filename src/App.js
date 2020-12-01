@@ -1,16 +1,16 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
-import ReactPlayer from "react-player"
-// import { Card, Col, Container, Row, ProgressBar } from 'react-bootstrap';
+import ReactPlayer from 'react-player';
+import HmmHmHmm from './images/mordocoffee.png';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       movies: [],
-      bigScreen: "What it do boo",
-      bigTitle: "456",
+      bigScreen: "Theaters",
+      bigTitle: "What it do boo",
       theVid: ''
     }
   }
@@ -30,10 +30,15 @@ class App extends React.Component {
   }
 
   handleClick = (event) => {
-    let titled = event.target.id;
+    let title = event.target.id;
     let summary = event.target.alt;
-    this.setState({bigScreen: summary})
-    this.setState({bigTitle: titled})
+    this.setState({bigScreen: summary, bigTitle: title, theVid: ''})
+  }
+
+  bootClick = () => {
+    const trailer = 'https://www.youtube.com/watch?v=';
+    let vidLink = 'qHFssXdRGQM';
+    this.setState({theVid: (trailer + vidLink), bigScreen: '', bigTitle: ''})
   }
 
   render() {
@@ -42,7 +47,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <img className="bgImage" src='https://www.searchpng.com/wp-content/uploads/2019/01/Theater-Clipart-Png-Image.png' alt=''/>
-        <div className='screen'><ReactPlayer className='player' url={this.state.theVid}/><h4>{this.state.bigTitle} <br/><br/> {this.state.bigScreen}</h4></div>
+        <button className='bootn' onClick={this.bootClick}>Play Trailer</button>
+        <div className='screen'><ReactPlayer className='player' url={this.state.theVid}/><h4>{this.state.bigTitle} <br/><br/> {this.state.bigScreen}</h4><img style={{width: '13em'}} src={HmmHmHmm} alt=''/></div>
         {this.state.movies.map((movie) =>
           {
             return <div key={movie.title}><img className="imgs" src={imP + movie.poster_path} alt={movie.overview} id={movie.title} onClick={this.handleClick}/><h5 className="tiles"> {movie.title} <br/> ({movie.vote_average}/10)</h5></div>;

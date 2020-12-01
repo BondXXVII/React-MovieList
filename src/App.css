@@ -21,6 +21,15 @@
   word-wrap: break-word;
   overflow-y: hidden;
 }
+.bootn {
+  position: fixed;
+  margin-top: -19em;
+  margin-left: 20em;
+  background-color: darkred;
+  border-color: white;
+  color: white;
+  border-radius: .5em;
+}
 .player {margin-left: 8em; position: fixed;}
 .imgs {width: 9em; margin: 1.5em;}
 .imgs:hover {box-shadow: .5em .5em 5em black; animation: swaag infinite 3s linear;}
