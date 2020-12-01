@@ -32,10 +32,9 @@
 }
 .player {margin-left: 8em; position: fixed;}
 .imgs {width: 9em; margin: 1.5em;}
-.imgs:hover {box-shadow: .5em .5em 5em black; animation: swaag infinite 3s linear;}
+.imgs:hover {box-shadow: .5em .5em 5em black; animation: swaag infinite 3.5s linear;}
 @keyframes swaag {
   0% {
-    display: block;
 	transform: scale(1.25) rotateZ(0deg)}
 	25% {
 		transform: scale(1.25) rotateZ(7deg)}
@@ -51,4 +50,36 @@
     transform: scale(1.25) rotateZ(-7deg)}
   100% {
     transform: scale(1.25) rotateZ(0deg)}
+}
+
+.zoom
+{
+animation: zoomin 20s linear infinite;
+width: 10em;
+top: 0;
+left: 0;
+transform: translateX(-120%) translateY(-120%) rotateZ(0);
+position: fixed;
+animation-delay: 11s;
+z-index: 9;
+pointer-events: none;
+}
+@keyframes zoomin {
+	98.001%, 0% {
+    display: block;
+	transform: translateX(-200%) translateY(100vh) rotateZ(0deg)}
+	15% {
+		transform: translateX(100vw) translateY(-100%) rotateZ(360deg)}
+	15.001%, 18% {
+		transform: translateX(100vw) translateY(-30%) rotateZ(0deg)}
+	40% {
+		transform: translateX(-200%) translateY(3vh) rotateZ(-360deg)}
+	40.001%, 43% {
+		transform: translateX(-200%) translateY(-100%) rotateZ(-0deg)}
+	65% {
+		transform: translateX(100vw) translateY(50vh) rotateZ(360deg)}
+	65.001%, 68% {  
+		transform: translateX(20vw) translateY(-200%) rotateZ(0deg)}
+	95% { 
+		transform: translateX(10vw) translateY(100vh) rotateZ(360deg)}
 }
