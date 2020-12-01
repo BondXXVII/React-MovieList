@@ -1,0 +1,45 @@
+.App {
+  text-align: center;
+  color: white;
+  display: inline-flex;
+  margin: 2em;
+  margin-top: 34em;
+}
+.bgImage {
+  position: fixed;
+  z-index: -1;
+  top: -10em;
+  left: -3em;
+}
+.screen {
+  margin-top: -28em;
+  margin-left: 31em;
+  color: black;
+  position: fixed;
+  width: 55em;
+  height: 22.5em;
+  word-wrap: break-word;
+  overflow-y: hidden;
+}
+.player {margin-left: 8em; position: fixed;}
+.imgs {width: 9em; margin: 1.5em;}
+.imgs:hover {box-shadow: .5em .5em 5em black; animation: swaag infinite 3s linear;}
+@keyframes swaag {
+  0% {
+    display: block;
+	transform: scale(1.25) rotateZ(0deg)}
+	25% {
+		transform: scale(1.25) rotateZ(7deg)}
+	25.1% {
+		transform: scale(1.25) rotateZ(7deg)}
+	50% {
+    transform: scale(1.25) rotateZ(0deg)}
+  50.1% {
+      transform: scale(1.25) rotateZ(0deg)}
+  75% {
+    transform: scale(1.25) rotateZ(-7deg)}
+  75.1% {
+    transform: scale(1.25) rotateZ(-7deg)}
+  100% {
+    transform: scale(1.25) rotateZ(0deg)}
+}
