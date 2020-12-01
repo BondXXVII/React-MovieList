@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import ReactPlayer from 'react-player';
 import HmmHmHmm from './images/mordocoffee.png';
-// import Popcorn from './images/popcorn.png';
+import Popcorn from './images/popcorn.png';
 
 class App extends React.Component {
   constructor(props) {
@@ -20,30 +20,16 @@ class App extends React.Component {
   }
 
   componentDidMount() {this.loadMovies();}
-  // componentDidMount() {this.loadMovies2();}
 
   loadMovies() {    // go grab (aka get) all the data from some url
     const url = "https://api.themoviedb.org/3/discover/movie?api_key=b6fbc7f3f313bd395902af464ef47262&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1";
     axios.get(url)
       .then(response => {   // then put just the movies (not everything) into the state
         console.log(response.data.results) //comment out after studying array in log
-        this.setState({movies: response.data.results, trailers: ['qHFssXdRGQM', '7Y6-w5Psupw','','']});
+        this.setState({movies: response.data.results, trailers: ['qHFssXdRGQM', '7Y6-w5Psupw','','xisfaGi_6Ow']});
         console.log(this.state.trailers)
       });
   }
-
-  // loadMovies2() {    // go grab (aka get) all the data from some url
-  //   const url1 = "https://api.themoviedb.org/3/movie/";
-  //   const url2 = "?api_key=b6fbc7f3f313bd395902af464ef47262&language=en-US";
-  //   let movieId = "724989";
-  //   let urlFull = url1 + movieId + url2;
-  //   console.log(urlFull)
-  //   axios.get(urlFull)
-  //     .then(response => {   // then put just the movies (not everything) into the state
-  //       console.log(response.data.results) //comment out after studying array in log
-  //       this.setState({movieStuff: response.data.results});
-  //     });
-  // }
 
   handleClick = (event) => {
     let title = event.target.id;
@@ -72,7 +58,7 @@ class App extends React.Component {
             return <div key={movie.title}><img className="imgs" src={imPath + movie.poster_path} alt={movie.overview} id={movie.title} onClick={this.handleClick} name={this.state.trailers[x]}/><h5 className="tiles"> {movie.title} <br/> ({movie.vote_average}/10)</h5></div>;
           })
         }
-        {/* <img className="zoom" src={Popcorn} alt=''/> */}
+        <img className="zoom" src={Popcorn} alt=''/>
       </div>
     );
   }
